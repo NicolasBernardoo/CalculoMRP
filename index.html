@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema MRP</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Sistema MRP</h1>
+  </header>
+
+  <div class="tabs">
+    <button class="tablinks" onclick="abrirAba(event, 'Pedidos')">Pedidos</button>
+    <button class="tablinks" onclick="abrirAba(event, 'Calcular')">Calcular</button>
+  </div>
+
+  <!-- Aba Pedidos -->
+  <div id="Pedidos" class="conteudo">
+    <h2>Pedidos</h2>
+    <input type="file" id="inputExcel" accept=".xlsx, .xls" />
+    <button onclick="carregarPlanilha()">Carregar Planilha</button>
+    <div id="tabelaPedidos" class="tabela-container"></div>
+  </div>
+
+  <!-- Aba Calcular -->
+  <div id="Calcular" class="conteudo" style="display:none">
+    <h2>Calcular</h2>
+    <button onclick="calcular()">Calcular Pedidos</button>
+    <button onclick="exportarExcel()">Exportar Excel</button>
+    <input type="text" id="filtroPedidos" placeholder="Filtrar pedidos por número do pedido" oninput="filtrarPedidos()">
+    <div id="tabelaCalcular" class="tabela-container"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
